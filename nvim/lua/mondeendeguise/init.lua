@@ -9,3 +9,4 @@ require'lspconfig'.sumneko_lua.setup {
     -- settings go here
   }
 }
+require'lspconfig'.rust_analyzer.setup {}
