@@ -28,11 +28,3 @@ o.termguicolors = true
 o.background = 'dark'
 
 g.mapleader = ','
-
--- necessary netrw improvements
-
-g.netrw_banner = 0        -- disable annoying banner
--- g.netrw_browse_split = 4  -- open in prior window
--- g.netrw_altv = 1          -- open splits to the right
-g.netrw_liststyle = 3     -- tree style
-g.netrw_list_hide = 'netrw_gitignore#Hide()'

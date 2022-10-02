@@ -51,3 +51,25 @@ require('nvim-lsp-installer').on_server_ready(function(server)
   end
   server:setup(opts)
 end)
+
+-- Tree
+g.loaded = 1
+g.loaded_netrwPlugin = 1
+
+require('nvim-tree').setup({
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = 'u', action = 'dir_up' },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
