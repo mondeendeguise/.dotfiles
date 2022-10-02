@@ -1,4 +1,4 @@
-# the zoomer shell config'
+# The Zoomer SHell configuration
 
 # enable colors and change prompt
 autoload -U colors && colors
@@ -7,7 +7,6 @@ PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magent
 # history in cache directory
 HISTSIZE=10000
 SAVEHIST=10000
-# HISTFILE=~/.cache/zsh/history
 
 # basic auto/tab complete
 autoload -U compinit
@@ -27,7 +26,13 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# edit line in vim with ctrl-e
+# edit line in vim with <C-e>
 autoload -z edit-command-line
 zle -N edit-commant-line
 bindkey -M vicmd '^e' edit-command-line
+
+# aliases
+alias v="fd --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+
+# flex
+neofetch
