@@ -22,6 +22,8 @@ o.scrolloff = 8
 o.guicursor = ''
 o.wrap = false
 
+o.spell = true
+
 o.termguicolors = true
 o.background = 'dark'
 
