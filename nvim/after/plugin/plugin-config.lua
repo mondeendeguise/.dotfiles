@@ -25,7 +25,7 @@ require'nvim-treesitter.configs'.setup {
     -- list of language that will be disabled
     disable = {},
 
-    additional_vim_regex_highlighting = true,
+    additional_vim_regex_highlighting = false,
   },
   indent = {
     enable = true,
