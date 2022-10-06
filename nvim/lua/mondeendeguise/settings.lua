@@ -28,3 +28,6 @@ o.termguicolors = true
 o.background = 'dark'
 
 g.mapleader = ','
+
+g.loaded = 1
+g.loaded_netrwPlugin = 1

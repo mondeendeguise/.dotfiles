@@ -7,7 +7,7 @@ vim.cmd('colorscheme gruvbox')
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust" },
+  ensure_installed = "all",
 
   -- Install parsers synchronously (only applied to 'ensure_installed')
   sync_install = false,
@@ -32,8 +32,8 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 -- Folds
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- LSP
 require('nvim-lsp-installer').on_server_ready(function(server)
@@ -53,8 +53,6 @@ require('nvim-lsp-installer').on_server_ready(function(server)
 end)
 
 -- Tree
-g.loaded = 1
-g.loaded_netrwPlugin = 1
 
 require('nvim-tree').setup({
   sort_by = "case_sensitive",
