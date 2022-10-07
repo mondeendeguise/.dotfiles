@@ -4,10 +4,13 @@ require('indent_blankline').setup {
   -- show_current_context_start = true,
 }
 
+-- Colorscheme
+-- vim.cmd('colorscheme gruvbox')
 require('onedark').setup {
   style = 'darker'
 }
 require('onedark').load()
+-- vim.cmd('colorscheme tokyodark')
 
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
