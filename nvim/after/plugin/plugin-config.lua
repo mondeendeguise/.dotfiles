@@ -1,8 +1,13 @@
-local g = vim.g
+require('feline').setup()
+require('indent_blankline').setup {
+  -- show_current_context = true,
+  -- show_current_context_start = true,
+}
 
-require('lualine').setup()
-
-vim.cmd('colorscheme gruvbox')
+require('onedark').setup {
+  style = 'darker'
+}
+require('onedark').load()
 
 -- Treesitter
 require'nvim-treesitter.configs'.setup {
