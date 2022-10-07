@@ -22,16 +22,16 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'saadparwaiz1/cmp_luasnip'
 
+  -- snippet engine
+  use {
+    'L3MON4D3/LuaSnip',
+    tag = 'v<CurrentMajor>.*'
+  }
+
   -- autopairs
   use {
     'windwp/nvim-autopairs',
     config = function() require('nvim-autopairs').setup {} end
-  }
-
-  -- snip engine
-  use {
-    'L3MON4D3/LuaSnip',
-    tag = 'v<CurrentMajor>.*'
   }
 
   -- git
@@ -79,4 +79,5 @@ return require('packer').startup(function(use)
   -- colorscheme
   use 'gruvbox-community/gruvbox'
   use 'navarasu/onedark.nvim'
+  use 'tiagovla/tokyodark.nvim'
 end)
