@@ -24,3 +24,12 @@ nmap('K', ':lua vim.lsp.buf.hover()<cr>')
 -- nmap('<c-k>', ':lua vim.lsp.buf.signature_help()<cr>')
 nmap('<leader>af', ':lua vim.lsp.buf.code_action()<cr>')
 nmap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
+
+nmap('<leader>ff', ':lua vim.lsp.buf.format()<cr>')
+
+-- Insert trailing ; or , from insert mode
+map('i', ';;', '<esc>A;<esc>', {})
+map('i', ',,', '<esc>A,<esc>', {})
+
+-- TagBar
+map('n', '<leader>tb', ':TagbarToggle()<cr>', opts)
