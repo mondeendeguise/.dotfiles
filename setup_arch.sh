@@ -2,7 +2,7 @@
 
 # Install packages
 pacman -Syu
-pacman -S git tree zsh neovim tmux wget base-devel docker
+pacman -S git tree zsh neovim tmux wget base-devel docker npm ctags
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
