@@ -2,60 +2,102 @@ return require('packer').startup(function(use)
   -- packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- langs
+  -- langs {{{
   use 'tjdevries/nlua.nvim'
   use 'rust-lang/rust.vim'
+  -- }}}
 
   -- lua repl
   use 'bfredl/nvim-luadev'
 
-  -- lsp
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-
-  -- cmp
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'saadparwaiz1/cmp_luasnip'
-
-  -- snippet engine
+  -- LSP {{{
   use {
-    'L3MON4D3/LuaSnip',
-    tag = 'v<CurrentMajor>.*'
+    'neovim/nvim-lspconfig',
+    requires = {
+      { -- Pretty self explanatory, adds :LspInstall to easily install LSP for current file
+        'williamboman/nvim-lsp-installer',
+      },
+      { -- Shows definition for function while typing
+        'ray-x/lsp_signature.nvim',
+      },
+      { -- Menu for sorting through LSP warnings and errors
+        'folke/trouble.nvim'
+      },
+    },
+  }
+  -- }}}
+
+  -- TreeSitter {{{
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      { -- Pretty tagbar idk
+        'preservim/tagbar'
+      },
+    },
+  }
+  -- }}}
+
+  -- completion {{{
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      { -- Snippet engine
+        'L3MON4D3/LuaSnip',
+        tag = 'v<CurrentMajor>.*'
+      },
+      { -- Add completions from LSP
+        'hrsh7th/cmp-nvim-lsp'
+      },
+      { -- Add completions from current buffer
+        'hrsh7th/cmp-buffer'
+      },
+      { -- Add completions from current path
+        'hrsh7th/cmp-path'
+      },
+      { -- Add completions from BASH
+        'hrsh7th/cmp-cmdline'
+      },
+      { -- Add completions from snippet engine
+        'saadparwaiz1/cmp_luasnip'
+      },
+    }
   }
 
-  -- autopairs
+  -- }}}
+
+  -- autopairs {{{
   use {
     'windwp/nvim-autopairs',
     config = function() require('nvim-autopairs').setup {} end
   }
+  -- }}}
 
-  -- git
+  -- git {{{
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup()
     end
   }
+  -- }}}
 
-  -- greeter
+  -- greeter {{{
   use {
     'goolord/alpha-nvim',
     config = function()
-      require'alpha'.setup(require'alpha.themes.dashboard'.config)
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
     end
   }
+  -- }}}
 
-  -- bless the lord tpope
+  -- bless the lord tpope {{{
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'tpope/vim-repeat'
+  -- }}}
 
-  -- file explorer
+  -- file explorer {{{
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -63,12 +105,10 @@ return require('packer').startup(function(use)
     },
     tag = 'nightly'
   }
+  -- }}}
 
   -- gf functionality
   use 'sam4llis/nvim-lua-gf'
-
-  -- tagbar
-  use 'preservim/tagbar'
 
   -- groovy status line
   use 'feline-nvim/feline.nvim'
@@ -76,8 +116,9 @@ return require('packer').startup(function(use)
   -- indent guides
   use 'lukas-reineke/indent-blankline.nvim'
 
-  -- colorscheme
+  -- colorscheme {{{
   use 'gruvbox-community/gruvbox'
   use 'navarasu/onedark.nvim'
   use 'tiagovla/tokyodark.nvim'
+  -- }}}
 end)
