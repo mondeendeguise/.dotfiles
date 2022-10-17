@@ -29,4 +29,8 @@ map('n', '<leader>;', '<esc>A;<esc>', {})
 map('n', '<leader>,', '<esc>A,<esc>', {})
 
 -- TagBar
-map('n', '<leader>tb', ':TagbarToggle()<cr>', opts)
+map('n', '<leader>tb', '<cmd>TagbarToggle<cr>', opts)
+
+-- Trouble
+map('n', '<leader>tt', '<cmd>TroubleToggle<cr>', { noremap = true })
+map('n', '<leader>tf', '<cmd>TroubleToggle quickfix<cr>', { noremap = true })
