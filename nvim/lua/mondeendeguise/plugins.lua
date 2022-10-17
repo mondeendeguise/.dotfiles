@@ -2,13 +2,10 @@ return require('packer').startup(function(use)
   -- packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  -- langs {{{
+  -- Langs {{{
   use 'tjdevries/nlua.nvim'
   use 'rust-lang/rust.vim'
   -- }}}
-
-  -- lua repl
-  use 'bfredl/nvim-luadev'
 
   -- LSP {{{
   use {
@@ -21,7 +18,13 @@ return require('packer').startup(function(use)
         'ray-x/lsp_signature.nvim',
       },
       { -- Menu for sorting through LSP warnings and errors
-        'folke/trouble.nvim'
+        'folke/trouble.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+          require('trouble').setup {
+            -- leave empty for defaults
+          }
+        end
       },
     },
   }
@@ -38,7 +41,7 @@ return require('packer').startup(function(use)
   }
   -- }}}
 
-  -- completion {{{
+  -- Completion {{{
   use {
     'hrsh7th/nvim-cmp',
     requires = {
@@ -66,37 +69,14 @@ return require('packer').startup(function(use)
 
   -- }}}
 
-  -- autopairs {{{
+-- autopairs {{{
   use {
     'windwp/nvim-autopairs',
     config = function() require('nvim-autopairs').setup {} end
   }
   -- }}}
 
-  -- git {{{
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
-  -- }}}
-
-  -- greeter {{{
-  use {
-    'goolord/alpha-nvim',
-    config = function()
-      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
-    end
-  }
-  -- }}}
-
-  -- bless the lord tpope {{{
-  use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-repeat'
-  -- }}}
-
+  -- Useful tools {{{
   -- file explorer {{{
   use {
     'kyazdani42/nvim-tree.lua',
@@ -107,18 +87,47 @@ return require('packer').startup(function(use)
   }
   -- }}}
 
+  -- lua repl
+  use 'bfredl/nvim-luadev'
+
+  -- }}}
+
+  -- Fixes{{{
+  -- bless the lord tpope
+  use 'tpope/vim-surround'
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-repeat'
+
   -- gf functionality
   use 'sam4llis/nvim-lua-gf'
+  -- }}}
 
+  -- Visual aid {{{
   -- groovy status line
   use 'feline-nvim/feline.nvim'
 
   -- indent guides
   use 'lukas-reineke/indent-blankline.nvim'
 
-  -- colorscheme {{{
+  -- colorscheme
   use 'gruvbox-community/gruvbox'
   use 'navarasu/onedark.nvim'
   use 'tiagovla/tokyodark.nvim'
+
+  -- greeter
+  use {
+    'goolord/alpha-nvim',
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+    end
+  }
+
+  -- git
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
   -- }}}
 end)
