@@ -14,6 +14,18 @@ o.splitright = true
 
 o.laststatus = 2
 
+-- don't automatically insert completion items until one is explicitly selected
+o.completeopt = 'menuone,noinsert'
+-- completion menu size max
+o.pumheight = 7
+
+-- Folds
+-- fill fold text with spaces
+o.fillchars = 'fold: '
+o.foldlevelstart = 99
+o.foldmethod = 'marker'
+o.foldmarker = '{{{,}}}'
+
 o.nu = true
 o.relativenumber = true
 o.numberwidth = 2
@@ -22,7 +34,7 @@ o.scrolloff = 8
 o.guicursor = ''
 o.wrap = false
 
-o.spell = true
+o.spell = false
 
 o.termguicolors = true
 o.background = 'dark'
