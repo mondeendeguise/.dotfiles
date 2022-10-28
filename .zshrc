@@ -35,4 +35,4 @@ bindkey -M vicmd '^e' edit-command-line
 alias v="fd --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
 
 # flex
-neofetch
+pfetch
