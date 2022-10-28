@@ -48,25 +48,15 @@ require("mason-tool-installer").setup({
     -- LSP
     "bash-language-server",
     "dockerfile-language-server",
-    "json-lsp",
-    "typescript-language-server",
-    "texlab",
     "lua-language-server",
     "pyright",
-    "terraform-ls",
+    "rust-analyzer",
     "yaml-language-server",
     -- Formatter
-    "black",
     "prettier",
     "stylua",
     -- Linter
     "eslint_d",
-    "shellcheck",
-    "tflint",
-    "vale",
-    "yamllint",
-    -- DAP
-    "debugpy",
   },
 
   -- if set to true this will check each tool for updates. If updates

@@ -122,12 +122,6 @@ packer.startup(function(use)
 
   use({ "onsails/lspkind.nvim" })
 
-  -- use({
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   requires = { { "nvim-lua/plenary.nvim" } },
-  --   config = get_config("lsp.null-ls"),
-  -- })
-
   use({ "SmiteshP/nvim-navic", requires = { "neovim/nvim-lspconfig" }  })
 
   use({
