@@ -34,5 +34,8 @@ bindkey -M vicmd '^e' edit-command-line
 # aliases
 alias v="fd --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
 
+# add user bin to path
+export PATH="$HOME/bin:$PATH"
+
 # flex
 pfetch
