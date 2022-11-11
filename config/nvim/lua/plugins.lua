@@ -1,5 +1,5 @@
 local fn = vim.fn
-local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 local function get_config(name)
   return string.format('require("config/%s")', name)
@@ -26,7 +26,7 @@ packer.init({
   enable = true,
   threshold = 0,
   max_jobs = 20,
-  
+
   display = {
     open_fn = function()
       return require("packer.util").float({ border = "rounded" })
@@ -46,8 +46,14 @@ packer.startup(function(use)
     config = get_config("coding.treesitter"),
     run = ":TSUpdate",
   })
-  
-  use({ "RRethy/nvim-treesitter-endwise", after = "nvim-treesitter" })
+
+  use({
+    "windwp/nvim-ts-autotag",
+    "RRethy/nvim-treesitter-endwise",
+    "p00f/nvim-ts-rainbow",
+
+    after = "nvim-treesitter",
+  })
 
   use({
     "hrsh7th/nvim-cmp",
@@ -62,7 +68,7 @@ packer.startup(function(use)
     },
     config = get_config("coding.cmp"),
   })
-  
+
   use({ "rafamadriz/friendly-snippets" })
 
   use({
@@ -70,31 +76,24 @@ packer.startup(function(use)
     requires = "saadparwaiz1/cmp_luasnip",
     config = get_config("coding.luasnip"),
   })
-  
-  use({ "p00f/nvim-ts-rainbow", after = "nvim-treesitter" })
+
 
   use({
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
     config = get_config("coding.indent-blankline"),
   })
-  
+
   use({
     "folke/todo-comments.nvim",
     requires = "nvim-lua/plenary.nvim",
     config = get_config("coding.todo"),
   })
-  
+
   use({ "rhysd/vim-grammarous", ft = { "markdown" }, config = get_config("coding.grammarous") })
-  
+
   use({ "LudoPinelli/comment-box.nvim", cmd = "CB*", config = get_config("coding.comment-box") })
 
-  -- use({
-  --   "windwp/nvim-ts-autotag",
-  --   config = function()
-  --     require("nvim-ts-autotag").setup()
-  --   end,
-  -- })
 
   use({
     "aarondiel/spread.nvim",
@@ -120,10 +119,6 @@ packer.startup(function(use)
   -- {{{ LSP
   use({ "neovim/nvim-lspconfig", config = get_config("lsp.lsp") })
 
-  use({ "onsails/lspkind.nvim" })
-
-  use({ "SmiteshP/nvim-navic", requires = { "neovim/nvim-lspconfig" }  })
-
   use({
     "williamboman/mason.nvim",
     cmd = "Mason*",
@@ -131,6 +126,10 @@ packer.startup(function(use)
     requires = { "williamboman/mason-lspconfig.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
     config = get_config("lsp.mason"),
   })
+
+  use({ "onsails/lspkind.nvim" })
+
+  use({ "SmiteshP/nvim-navic", requires = { "neovim/nvim-lspconfig" } })
   -- }}} LSP
 
   -- {{{ UI
@@ -163,13 +162,10 @@ packer.startup(function(use)
   use({
     "noib3/nvim-cokeline",
     required = "kyazdani42/nvim-web-devicons",
-    -- config = get_config("ui.cokeline"),
-    config = function()
-      require("cokeline").setup()
-    end
+    config = get_config("ui.cokeline"),
   })
 
-  use({"preservim/tagbar"})
+  use({ "preservim/tagbar" })
 
   use({ "feline-nvim/feline.nvim", config = get_config("ui.feline") })
 
