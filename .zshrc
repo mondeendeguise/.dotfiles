@@ -32,7 +32,12 @@ zle -N edit-commant-line
 bindkey -M vicmd '^e' edit-command-line
 
 # aliases
-alias v="fd --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"
+alias v="fd --hidden --exclude .git | fzf-tmux -p --reverse | xargs nvim"  # find and edit file in nvim using fzf
+alias ls="ls -F --color=auto"  # improve ls
+alias ll="ls -lF --color=auto"  # list list
+alias la="ls -laF"
+alias lt="ls -hs1SF"  # sort files by size
+alias gh="history | grep"  # search history
 
 # add user bin to path
 export PATH="$HOME/bin:$PATH"
