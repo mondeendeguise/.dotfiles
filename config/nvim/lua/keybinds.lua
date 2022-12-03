@@ -23,14 +23,16 @@ keymap.set("n", "<leader>ff", ":lua vim.lsp.buf.format()<cr>")
 -- Cokeline {{{
 keymap.set("n", "<tab>", "<plug>(cokeline-focus-next)", { silent = true })
 keymap.set("n", "<s-tab>", "<plug>(cokeline-focus-prev)", { silent = true })
-keymap.set("n", "<leader>n", "<plug>(cokeline-switch-next)", { silent = true })
-keymap.set("n", "<leader>p", "<plug>(cokeline-switch-prev)", { silent = true })
+keymap.set("n", "<leader>tn", "<plug>(cokeline-switch-next)", { silent = true })
+keymap.set("n", "<leader>tp", "<plug>(cokeline-switch-prev)", { silent = true })
 
 for i = 1,9 do
   keymap.set("n", ("<f%s>"):format(i), ("<plug>(cokeline-focus-%s)"):format(i), { silent = true })
   keymap.set("n", ("<leader%s>"):format(i), ("<plug>(cokeline-switch-%s)"):format(i), { silent = true })
 end
 -- }}}
+
+keymap.set("n", "<leader>p", "<cmd>lua require('nabla').popup()<cr>", { silent = true })
 
 -- Insert trailing ; or , from normal mode
 keymap.set("n", "<leader>;", "<esc>A;<esc>")

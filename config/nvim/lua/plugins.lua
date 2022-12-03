@@ -150,6 +150,8 @@ packer.startup(function(use)
     config = get_config("ui.symbols"),
   })
 
+  use({ "jbyuki/nabla.nvim", config = get_config("ui.nabla") })
+
   use({
     "akinsho/nvim-toggleterm.lua",
     config = get_config("ui.toggleterm"),
