@@ -20,3 +20,7 @@ nvim_lsp["rust_analyzer"].setup({
 nvim_lsp["emmet_ls"].setup({
   capabilities = capabilities
 })
+
+nvim_lsp["texlab"].setup({
+  capabilities = capabilities
+})

@@ -150,6 +150,8 @@ packer.startup(function(use)
     config = get_config("ui.symbols"),
   })
 
+  use({ "lervag/vimtex", config = get_config("ui.vimtex") })
+
   use({ "jbyuki/nabla.nvim", config = get_config("ui.nabla") })
 
   use({
