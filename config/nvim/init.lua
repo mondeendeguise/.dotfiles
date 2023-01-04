@@ -1,8 +1,3 @@
-require("settings")
-
+require("options")
 require("plugins")
-
-require("keybinds")
-
-require("autocmds")
-
+require("remap")

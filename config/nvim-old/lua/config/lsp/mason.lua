@@ -52,6 +52,7 @@ require("mason-tool-installer").setup({
     "pyright",
     "rust-analyzer",
     "yaml-language-server",
+    "clangd",
     -- Formatter
     "prettier",
     "stylua",

@@ -17,7 +17,7 @@ keymap.set("n", "<c-k>", ":lua vim.lsp.buf.signature_help()<cr>")
 keymap.set("n", "<leader>af", ":lua vim.lsp.buf.code_action()<cr>")
 keymap.set("n", "<leader>rn", ":lua vim.lsp.buf.rename()<cr>")
 
-keymap.set("n", "<leader>ff", ":lua vim.lsp.buf.format()<cr>")
+-- keymap.set("n", "<leader>ff", ":lua vim.lsp.buf.format()<cr>")
 -- }}}
 
 -- Cokeline {{{
@@ -31,6 +31,13 @@ for i = 1,9 do
   keymap.set("n", ("<leader%s>"):format(i), ("<plug>(cokeline-switch-%s)"):format(i), { silent = true })
 end
 -- }}}
+
+-- {{{ Telescope
+
+keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, {})
+keymap.set("n", "<leader>lg", require("telescope.builtin").live_grep, {})
+
+-- }}} Telescope
 
 keymap.set("n", "<leader>p", "<cmd>lua require('nabla').popup()<cr>", { silent = true })
 

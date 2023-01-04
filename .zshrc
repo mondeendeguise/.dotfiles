@@ -43,4 +43,4 @@ alias gh="history | grep"  # search history
 export PATH="$HOME/bin:$PATH"
 
 # flex
-pfetch
+# pfetch

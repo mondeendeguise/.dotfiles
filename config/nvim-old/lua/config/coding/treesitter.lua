@@ -1,5 +1,5 @@
 require("nvim-treesitter.configs").setup({
-  ensure_installed = "all",
+  ensure_installed = { "bash", "bibtex", "cpp", "css", "dockerfile", "go", "html", "java", "javascript", "json", "latex", "lua", "markdown", "python", "rust", "sql", "toml", "yaml" },
   sync_install = false,
   ignore_install = {},
 
