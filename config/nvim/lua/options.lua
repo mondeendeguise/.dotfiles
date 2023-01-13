@@ -7,9 +7,10 @@ o.smarttab = true
 o.expandtab = true
 o.autoindent = true
 o.tabstop = 4
-o.softtabstop = 2
-o.shiftwidth = 2
+o.softtabstop = 4
+o.shiftwidth = 4
 
+o.hlsearch = false
 o.incsearch = true
 
 o.laststatus = 2
@@ -39,4 +40,4 @@ o.background = "dark"
 -- netrw improvements
 g.netrw_banner = 0
 g.netrw_altv = 1
-g.netrw_liststyle = 3
+-- g.netrw_liststyle = 3
