@@ -116,5 +116,7 @@ return require("packer").startup(function(use)
 		as = "rose-pine",
 		config = get_config("ui.color"),
 	})
+    
+    use({ "tpope/vim-commentary" })
     -- }}} UI
 end)
