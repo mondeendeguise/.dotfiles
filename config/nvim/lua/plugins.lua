@@ -1,7 +1,7 @@
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
 local function get_config(name)
-  return string.format('require("config/%s")', name)
+  return string.format("require('config/%s')", name)
 end
 
 -- {{{ Bootstrap packer
@@ -39,7 +39,7 @@ return require("packer").startup(function(use)
     -- {{{ Code
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		{ run = ":TSUpdate" },
+		run = ":TSUpdate",
         config = get_config("code.treesitter"),
 	})
 
@@ -63,29 +63,58 @@ return require("packer").startup(function(use)
     -- }}} Git
 
     -- {{{ LSP
+
     use({
-        "VonHeikemen/lsp-zero.nvim",
-        requires = {
-            -- LSP Support
-            { "neovim/nvim-lspconfig" },
-            { "williamboman/mason.nvim" },
-            { "williamboman/mason-lspconfig.nvim" },
-
-            -- Autocompletion
-            { "hrsh7th/nvim-cmp" },
-            { "hrsh7th/cmp-buffer" },
-            { "hrsh7th/cmp-path" },
-            { "saadparwaiz1/cmp_luasnip" },
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "hrsh7th/cmp-nvim-lua" },
-
-            -- Snippets
-            { "L3MON4D3/LuaSnip" },
-            -- Snippet Collection (Optional)
-            { "rafamadriz/friendly-snippets" },
-        },
-        config = get_config("lsp.lsp-zero"),
+        "williamboman/mason.nvim",
+        config = get_config("lsp.mason"),
+        run = ":MasonUpdate",
     })
+
+    use({
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    })
+
+    use({
+        "hrsh7th/nvim-cmp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "saadparwaiz1/cmp_luasnip",
+        "L3MON4D3/cmp-luasnip-choice",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-emoji",
+
+        requires = {
+            "L3MON4D3/LuaSnip"
+        },
+        config = get_config("lsp.cmp"),
+    })
+
+--     use({
+--         "VonHeikemen/lsp-zero.nvim",
+--         requires = {
+--             -u LSP Support
+--             { "neovim/nvim-lspconfig" },
+--             { "williamboman/mason.nvim" },
+--             { "williamboman/mason-lspconfig.nvim" },
+
+--             -- Autocompletion
+--             { "hrsh7th/nvim-cmp" },
+--             { "hrsh7th/cmp-buffer" },
+--             { "hrsh7th/cmp-path" },
+--             { "saadparwaiz1/cmp_luasnip" },
+--             { "hrsh7th/cmp-nvim-lsp" },
+--             { "hrsh7th/cmp-nvim-lua" },
+
+--             -- Snippets
+--             { "L3MON4D3/LuaSnip" },
+--             -- Snippet Collection (Optional)
+--             { "rafamadriz/friendly-snippets" },
+--         },
+--         config = get_config("lsp.lsp-zero"),
+--     })
+
     -- }}} LSP
 
 	-- {{{ UI
@@ -116,7 +145,8 @@ return require("packer").startup(function(use)
 		as = "rose-pine",
 		config = get_config("ui.color"),
 	})
-    
+
     use({ "tpope/vim-commentary" })
+    use({ "tpope/vim-surround" })
     -- }}} UI
 end)
