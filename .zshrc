@@ -53,5 +53,7 @@ alias lt="ls -hs1SF"            # sort files by size
 alias gh="history | grep"       # search history
 
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux/:$PATH"
 
+pfetch

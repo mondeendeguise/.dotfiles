@@ -37,11 +37,13 @@ tiling_drag modifier titlebar
 bindsym $mod+Shift+q kill
 bindsym $mod+Return exec kitty
 bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym Print exec maim -u | feh -F - & maim -s -k /tmp/screenshot.png && kill $!
 
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+p exec firefox --private-window
 bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+m exec mscore
+bindsym $mod+Shift+s exec spotify -no-zygote
 
 # Select region to screenshot & copy to clipboard
 bindsym --release Shift+Print exec "/home/ash/bin/screenshot.sh /home/ash/pictures/screenshots/"
@@ -177,4 +179,5 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec_always --no-startup-id feh --recursive --bg-fill --randomize ~/pictures/wallpapers/*
+# exec_always --no-startup-id feh --recursive --bg-fill --randomize ~/pictures/wallpapers/*
+exec_always --no-startup-id feh --recursive --bg-fill --randomize ~/pictures/wallpapers/Milk\ Outside\ a\ Bag\ of\ Milk\ Outside\ a\ Bag\ of\ Milk/fresh_air_cropped.png

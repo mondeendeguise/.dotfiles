@@ -1,6 +1,5 @@
--- Vim Opts
-local o = vim.o
--- Vim Globals
+-- Vim Options & Globals
+local o = vim.opt
 local g = vim.g
 
 o.smarttab = true
@@ -10,6 +9,9 @@ o.tabstop = 4
 o.softtabstop = 4
 o.shiftwidth = 4
 
+-- Search options
+o.ignorecase = true
+o.smartcase = true
 o.hlsearch = false
 o.incsearch = true
 
@@ -20,10 +22,13 @@ o.completeopt = "menuone,noinsert"
 -- Completion menu
 o.pumheight = 7
 
-o.fillchars = "fold: "
+-- Folds
+-- o.fillchars = "fold: "
 o.foldlevelstart = 99
-o.foldmethod = "marker"
-o.foldmarker = "{{{,}}}"
+-- o.foldmethod = "marker"
+o.foldmethod = "expr"
+-- o.foldmarker = "{{{,}}}"
+o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- UI
 o.nu = true
@@ -34,10 +39,20 @@ o.scrolloff = 8
 o.guicursor = ""
 o.wrap = false
 
+-- Appearance
 o.termguicolors = true
 o.background = "dark"
+o.signcolumn = "yes"
 
--- netrw improvements
+-- NETRW Fix
 g.netrw_banner = 0
 g.netrw_altv = 1
 -- g.netrw_liststyle = 3
+
+-- Splits
+o.splitright = true
+o.splitbelow = true
+
+-- Hyphen is part of words now
+o.iskeyword:append("-")
+
