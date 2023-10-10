@@ -37,7 +37,8 @@ tiling_drag modifier titlebar
 bindsym $mod+Shift+q kill
 bindsym $mod+Return exec kitty
 bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym Print exec maim -u | feh -F - & maim -s -k /tmp/screenshot.png && kill $!
+# Take a screenshot with maim, then crop with feh
+bindsym Print exec maim -u | feh -F - & maim -s -k ~/tmp/screenshot.png && kill $!
 
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+p exec firefox --private-window
@@ -163,6 +164,11 @@ mode "resize" {
         bindsym j resize grow height 2 px or 2 ppt
         bindsym k resize shrink height 2 px or 2 ppt
         bindsym l resize grow width 2 px or 2 ppt
+
+        bindsym Shift+h resize shrink width 5 px or 5 ppt
+        bindsym Shift+j resize grow height 5 px or 5 ppt
+        bindsym Shift+k resize shrink height 5 px or 5 ppt
+        bindsym Shift+l resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 2 px or 2 ppt
