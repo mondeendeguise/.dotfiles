@@ -1,8 +1,12 @@
 return {
     "nvim-telescope/Telescope.nvim",
     branch = "0.1.x",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons",
+    },
     lazy = false,
+
     keys = {
         { "<leader>pf", "<cmd>Telescope git_files<cr>", desc = [[
             Fuzzy search through the output of `git ls-files` command,

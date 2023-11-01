@@ -35,8 +35,11 @@ return {
         opts = {}
     },
 
+    { "christoomey/vim-tmux-navigator" },
+
     {
         "stevearc/dressing.nvim",
+        lazy = false,
         opts = {},
     },
 
@@ -66,6 +69,4 @@ return {
     },
 
     { "stevearc/dressing.nvim", event = "VeryLazy" },
-
-    { "nvim-tree/nvim-web-devicons", lazy = true },
 }

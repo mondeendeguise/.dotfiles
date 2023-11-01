@@ -6,24 +6,27 @@ return {
         dependencies = {
             { "rafamadriz/friendly-snippets" },
         },
+
         init = function()
             require("luasnip/loaders/from_vscode").lazy_load()
             local ls = require("luasnip")
             -- some shorthands...
-            local snip = ls.snippet
-            local node = ls.snippet_node
-            local text = ls.text_node
-            local insert = ls.insert_node
-            local func = ls.function_node
-            local choice = ls.choice_node
-            local dynamicn = ls.dynamic_node
+            local s = ls.snippet
+            local n = ls.snippet_node
+            local t = ls.text_node
+            local i = ls.insert_node
+            local f = ls.function_node
+            local c = ls.choice_node
+            local d = ls.dynamic_node
+
+            local fmt = require("luasnip.extras.fmt").fmt
 
             ls.config.set_config({
                 store_selection_keys = "<c-s>",
             })
 
-            local date = function()
-                return { os.date("%Y-%m-%d") }
+            local pretty_date = function()
+                return { os.date("%d %B %Y") }
             end
 
             local filename = function()
@@ -39,33 +42,40 @@ return {
                 return res
             end
 
+            local function split_string(str)
+                local words = {}
+                for word in str:gmatch("%w+") do table.insert(words, word) end
+                return words[#words]
+            end
+
             ls.add_snippets(nil, {
                 all = {
-                    snip({
+                    s({
                         trig = "date",
-                        namr = "Date",
-                        dscr = "Date in the form of YYYY-MM-DD",
+                        namr = "Pretty date",
+                        dscr = "Date in the form of DD Month YYYY",
                     }, {
-                        func(date, {}),
+                        f(pretty_date, {}),
                     }),
 
-                    snip({
+                    s({
                         trig = "filename",
                         namr = "Filename",
                         dscr = "Absolute path to file",
                     }, {
-                        func(filename, {}),
+                        f(filename, {}),
                     }),
 
-                    snip({
+                    s({
                         trig = "pwd",
                         namr = "PWD",
                         dscr = "Path to current working directory",
                     }, {
-                        func(bash, {}, { user_args = { "pwd" } }),
+                        f(bash, {}, { user_args = { "pwd" } }),
                     }),
                 },
+
             })
-        end,
+        end
     },
 }

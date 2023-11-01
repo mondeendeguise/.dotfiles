@@ -33,6 +33,10 @@ return {
             "antosha417/nvim-lsp-file-operations",
         },
 
+        keys = {
+            { "<leader>rn", vim.lsp.buf.rename, desc = [[Smart rename]] },
+        },
+
         config = function()
             local lspconfig = require("lspconfig")
             local cmp_nvim_lsp = require("cmp_nvim_lsp")

@@ -21,8 +21,10 @@ o.completeopt = "menuone,noinsert"
 o.pumheight = 7
 
 o.foldlevelstart = 99
-o.foldmethod = "marker"
-o.foldmarker = "{{{,}}}"
+o.foldmethod = "expr"
+o.foldexpr = "nvim_treesitter#foldexpr()"
+--o.foldmethod = "marker"
+--o.foldmarker = "{{{,}}}"
 
 -- UI
 
@@ -33,6 +35,7 @@ o.numberwidth = 2
 o.cursorline = true
 o.guicursor = ""
 
+o.colorcolumn = 80
 o.wrap = false
 o.scrolloff = 5
 
