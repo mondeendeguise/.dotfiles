@@ -37,6 +37,7 @@ tiling_drag modifier titlebar
 bindsym $mod+Shift+q kill
 bindsym $mod+Return exec kitty
 bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+e exec nemo
 # Take a screenshot with maim, then crop with feh
 bindsym Print exec maim -u | feh -F - & maim -s -k ~/tmp/screenshot.png && kill $!
 
@@ -94,7 +95,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+p layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

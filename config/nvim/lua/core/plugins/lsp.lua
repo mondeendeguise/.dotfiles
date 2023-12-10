@@ -34,7 +34,8 @@ return {
         },
 
         keys = {
-            { "<leader>rn", vim.lsp.buf.rename, desc = [[Smart rename]] },
+            { "<leader>rn", vim.lsp.buf.rename, desc = [[Smart Rename]] },
+            { "<leader>ca", vim.lsp.buf.code_action, desc = [[Code Action]] },
         },
 
         config = function()
@@ -102,9 +103,25 @@ return {
                 on_attach = on_attach,
             })
 
-            lspconfig.rust_analyzer.setup({})
-            lspconfig.bashls.setup({})
-            lspconfig.clangd.setup({})
+            lspconfig.rust_analyzer.setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            lspconfig.bashls.setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            lspconfig.clangd.setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
+
+            lspconfig.cmake.setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
 
             lspconfig.texlab.setup({})
         end,
