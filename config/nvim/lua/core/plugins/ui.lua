@@ -7,23 +7,21 @@ return {
             style = "storm",
             transparent = true,
             styles = {
-                comments = { italic = true },
-                keywords = { italic = true },
-                functions = {},
-                variables = {},
-
-                sidebars = "dark",
-                floats = "dark",
+                comments =  {},
+                keywords =  {},
+                functions = { italic = true },
+                variables = { italic = true },
             },
+
             sidebars = { "help" },
             dim_inactive = false,
-            lualine_bold = false,
-
         },
         init = function()
             vim.cmd([[colorscheme tokyonight]])
         end
     },
+
+    { "christoomey/vim-tmux-navigator" },
 
     {
         "folke/which-key.nvim",
@@ -35,38 +33,39 @@ return {
         opts = {}
     },
 
-    { "christoomey/vim-tmux-navigator" },
-
     {
-        "stevearc/dressing.nvim",
-        lazy = false,
-        opts = {},
-    },
+        "anuvyklack/pretty-fold.nvim",
+        config = {
+            sections = {
+                left = {
+                    "content", "",
+                },
 
-    {
-        "rcarriga/nvim-notify",
-        keys = {
-            {
-                "<Leader>un",
-                function()
-                    require("notify").dismiss({ silent = true, pending = true })
-                end,
-                desc = "Dismiss all notifications",
+                right = {
+                    " ", "number_of_folded_lines", "percentage", " ",
+                },
+            },
+
+            fill_char = " ",
+
+            remove_fold_markers = true,
+            keep_indentation = true,
+
+            process_comment_signs = "spaces",
+
+            comment_signs = {},
+
+            stop_words = {
+                "@brief%s*",
+            },
+
+            add_close_pattern = true,
+
+            matchup_patterns = {
+                {  "{", "}" },
+                { "%(", ")" },
+                { "%[", "]" },
             },
         },
-        opts = {
-            timeout = 3000,
-            max_height = function()
-                return math.floor(vim.o.lines * 0.75)
-            end,
-            max_width = function()
-                return math.floor(vim.o.columns * 0.75)
-            end,
-        },
-        init = function()
-            vim.notify = require("notify")
-        end,
     },
-
-    { "stevearc/dressing.nvim", event = "VeryLazy" },
 }
