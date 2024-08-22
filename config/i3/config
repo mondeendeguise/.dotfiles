@@ -50,7 +50,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Return exec kitty
 bindsym $mod+d exec --no-startup-id dmenu_run
 # Take a screenshot with maim, then crop with feh
-bindsym Print exec maim -u | feh -F - & maim -s -k ~/tmp/screenshot.png && kill $!
+bindsym Print exec maim -s -u | xclip -selection clipboard -t image/png -i
+bindsym Shift+Print exec maim -u | feh -F - & maim -s -k "$HOME/Pictures/screenshots/$(date).png" && kill $!
 
 bindsym $mod+Shift+e exec nemo
 bindsym $mod+Shift+f exec firefox
@@ -197,5 +198,5 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-# exec_always --no-startup-id feh --recursive --bg-fill --randomize ~/pictures/wallpapers/*
-exec_always --no-startup-id feh --recursive --bg-fill --randomize ~/pictures/wallpapers/Milk\ Outside\ a\ Bag\ of\ Milk\ Outside\ a\ Bag\ of\ Milk/fresh_air_cropped.png
+# exec_always --no-startup-id feh --recursive --bg-fill --randomize $HOME/pictures/wallpapers/*
+exec_always --no-startup-id feh --recursive --bg-fill --randomize $HOME/pictures/wallpapers/Milk\ Outside\ a\ Bag\ of\ Milk\ Outside\ a\ Bag\ of\ Milk/fresh_air_cropped.png
