@@ -49,15 +49,14 @@ tiling_drag modifier titlebar
 bindsym $mod+Shift+q kill
 bindsym $mod+Return exec kitty
 bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+e exec nemo
 # Take a screenshot with maim, then crop with feh
 bindsym Print exec maim -u | feh -F - & maim -s -k ~/tmp/screenshot.png && kill $!
 
+bindsym $mod+Shift+e exec nemo
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+p exec firefox --private-window
 bindsym $mod+Shift+d exec discord
 bindsym $mod+Shift+m exec mscore
-bindsym $mod+Shift+s exec spotify -no-zygote
 
 # Select region to screenshot & copy to clipboard
 bindsym --release Shift+Print exec "/home/ash/bin/screenshot.sh /home/ash/pictures/screenshots/"
@@ -105,9 +104,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+p layout toggle split
+bindsym $mod+w layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+s layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -163,7 +162,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+z exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

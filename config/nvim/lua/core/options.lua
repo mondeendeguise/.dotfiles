@@ -32,8 +32,10 @@ add_options({
 
     -- Enable folds, but start with everything* unfolded
     foldlevelstart = 99,
-    foldmethod = "expr",
-    foldexper = "nvim_treesitter#foldexpr()",
+    foldmethod = "marker",
+    foldmarker = "{{{,}}}",
+    -- foldmethod = "expr",
+    -- foldexpr = "nvim_treesitter#foldexpr()",
 
     nu = true,
     relativenumber = true,
