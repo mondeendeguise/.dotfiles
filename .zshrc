@@ -31,15 +31,15 @@ compinit
 _comp_options+=(globdots)
 
 # vi mode
-bindkey -v
-export KEYTIMEOUT=1
+#bindkey -v
+#export KEYTIMEOUT=1
 
 # use vim keys in tab complete menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -v '^?' backward-delete-char
+#bindkey -M menuselect 'h' vi-backward-char
+#bindkey -M menuselect 'k' vi-up-line-or-history
+#bindkey -M menuselect 'l' vi-forward-char
+#bindkey -M menuselect 'j' vi-down-line-or-history
+#bindkey -v '^?' backward-delete-char
 
 # edit line in vim with <C-e>
 # autoload -z edit-command-line
@@ -56,4 +56,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/texlive/2023/bin/x86_64-linux/:$PATH"
 
+# i use arch btw
 pfetch
+
+[ -f "/home/ash/.ghcup/env" ] && . "/home/ash/.ghcup/env" # ghcup-env
