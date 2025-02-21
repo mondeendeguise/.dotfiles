@@ -1,7 +1,7 @@
-[user]
-	name = Ash Bullock
-	email = 45837222+mondeendeguise@users.noreply.github.com
-[core]
-	editor = nvim
 [init]
 	defaultBranch = main
+[user]
+	email = mondeendeguise@gmail.com
+	name = Ash Bullock
+[core]
+	editor = nvim
